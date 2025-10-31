@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PC Building Roadmap - Complete Step-by-Step Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #f8fdff;
+            color: #1a1a1a;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #00c8c8, #00a8a8);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Components Overview */
+        .components-section {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #1a1a1a;
+            margin-bottom: 3rem;
+        }
+
+        .components-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .component-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 200, 200, 0.1);
+            border: 1px solid rgba(0, 200, 200, 0.1);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .component-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 200, 200, 0.2);
+        }
+
+        .component-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #00c8c8, #00a8a8);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .component-card h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #1a1a1a;
+        }
+
+        .component-card p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* Tools Section */
+        .tools-section {
+            padding: 4rem 0;
+            background: #f8fdff;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .tool-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 200, 200, 0.08);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .tool-icon {
+            width: 50px;
+            height: 50px;
+            background: #00c8c8;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .tool-info h4 {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .tool-info p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Roadmap Steps */
+        .roadmap-section {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .steps-container {
+            position: relative;
+        }
+
+        .step-item {
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+            gap: 3rem;
+            margin-bottom: 4rem;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .step-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .step-number {
+            position: relative;
+            text-align: center;
+        }
+
+        .step-circle {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #00c8c8, #00a8a8);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: white;
+            margin: 0 auto 1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .step-line {
+            position: absolute;
+            top: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100px;
+            background: linear-gradient(to bottom, #00c8c8, transparent);
+            z-index: 1;
+        }
+
+        .step-item:last-child .step-line {
+            display: none;
+        }
+
+        .step-content {
+            background: #f8fdff;
+            padding: 2rem;
+            border-radius: 15px;
+            /* border-left: 4px solid #00c8c8; */
+        }
+
+        .step-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+        }
+
+        .step-description {
+            color: #666;
+            margin-bottom: 2rem;
+            font-size: 1.05rem;
+        }
+
+        .step-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #e6f9ff, #f0fcff);
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px dashed rgba(0, 200, 200, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+
+
+        .step-image::before {
+           
+            font-size: 3rem;
+            opacity: 0.5;
+        }
+
+        .step-image-text {
+            position: absolute;
+            bottom: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 200, 200, 0.9);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .step-tips {
+            background: rgba(0, 200, 200, 0.05);
+            padding: 1.5rem;
+            border-radius: 10px;
+            /* border-left: 4px solid #00c8c8; */
+            margin-top: 1.5rem;
+        }
+
+        .step-tips h4 {
+            color: #00c8c8;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .step-tips ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .step-tips li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #666;
+        }
+
+        .step-tips li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #00c8c8;
+            font-weight: bold;
+        }
+
+        /* Safety Section */
+        .safety-section {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, #ff6b6b, #ff5252);
+            color: white;
+            text-align: center;
+        }
+
+        .safety-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .safety-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .safety-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Troubleshooting Section */
+        .troubleshooting-section {
+            padding: 4rem 0;
+            background: #f8fdff;
+        }
+
+        .troubleshooting-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .troubleshooting-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 200, 200, 0.1);
+            border-left: 4px solid #ff6b6b;
+        }
+
+        .troubleshooting-card h3 {
+            color: #ff6b6b;
+            margin-bottom: 1rem;
+        }
+
+        .troubleshooting-card p {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .solution {
+            background: rgba(0, 200, 200, 0.05);
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 3px solid #00c8c8;
+        }
+
+        .solution strong {
+            color: #00c8c8;
+        }
+
+        /* Success Section */
+        .success-section {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, #4caf50, #45a049);
+            color: white;
+            text-align: center;
+        }
+
+        .success-section h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+        }
+
+        .success-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .celebration-icon {
+            font-size: 4rem;
+            margin-bottom: 2rem;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5rem;
+            }
+
+            .header p {
+                font-size: 1.1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .step-item {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .step-line {
+                display: none;
+            }
+
+            .step-circle {
+                width: 60px;
+                height: 60px;
+                font-size: 1.2rem;
+            }
+
+            .step-title {
+                font-size: 1.5rem;
+            }
+
+            .component-card {
+                padding: 1.5rem;
+            }
+
+            .component-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Scroll Animation */
+        .scroll-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: rgba(0, 200, 200, 0.2);
+            z-index: 1000;
+        }
+
+        .scroll-progress {
+            height: 100%;
+            background: linear-gradient(90deg, #00c8c8, #00a8a8);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="scroll-indicator">
+        <div class="scroll-progress" id="scrollProgress"></div>
+    </div>
+
+    <header class="header">
+        <div class="container">
+            <h1>PC Building Roadmap</h1>
+            <p>Complete step-by-step guide to building your custom PC with your components: Cabinet, Motherboard, Processor, Graphics Card, RAM, and SSD</p>
+        </div>
+    </header>
+
+    <section class="components-section">
+        <div class="container">
+            <h2 class="section-title">Your Components</h2>
+            <div class="components-grid">
+                <div class="component-card">
+                    <div class="component-icon">🖥️</div>
+                    <h3>PC Cabinet</h3>
+                    <p>The foundation that houses all your components with proper ventilation and cable management</p>
+                </div>
+                <div class="component-card">
+                    <div class="component-icon">🔌</div>
+                    <h3>Motherboard</h3>
+                    <p>The main circuit board connecting all components together</p>
+                </div>
+                <div class="component-card">
+                    <div class="component-icon">⚡</div>
+                    <h3>Processor (CPU)</h3>
+                    <p>The brain of your computer that executes all instructions</p>
+                </div>
+                <div class="component-card">
+                    <div class="component-icon">🎮</div>
+                    <h3>Graphics Card</h3>
+                    <p>Dedicated GPU for rendering graphics and accelerating visual tasks</p>
+                </div>
+                <div class="component-card">
+                    <div class="component-icon">💾</div>
+                    <h3>RAM Memory</h3>
+                    <p>System memory for temporary data storage and multitasking</p>
+                </div>
+                <div class="component-card">
+                    <div class="component-icon">💿</div>
+                    <h3>SSD Storage</h3>
+                    <p>Fast solid-state drive for your operating system and applications</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="tools-section">
+        <div class="container">
+            <h2 class="section-title">Tools You'll Need</h2>
+            <div class="tools-grid">
+                <div class="tool-item">
+                    <div class="tool-icon">🔧</div>
+                    <div class="tool-info">
+                        <h4>Phillips Head Screwdriver</h4>
+                        <p>Main tool for most screws</p>
+                    </div>
+                </div>
+                <div class="tool-item">
+                    <div class="tool-icon">⚡</div>
+                    <div class="tool-info">
+                        <h4>Anti-Static Wrist Strap</h4>
+                        <p>Prevents static damage (optional)</p>
+                    </div>
+                </div>
+                <div class="tool-item">
+                    <div class="tool-icon">🔦</div>
+                    <div class="tool-info">
+                        <h4>Good Lighting</h4>
+                        <p>Proper illumination of workspace</p>
+                    </div>
+                </div>
+                <div class="tool-item">
+                    <div class="tool-icon">📱</div>
+                    <div class="tool-info">
+                        <h4>Phone/Camera</h4>
+                        <p>Document cable connections</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="safety-section">
+        <div class="container">
+            <h2 class="section-title">Safety First!</h2>
+            <div class="safety-grid">
+                <div class="safety-item">
+                    <h3>⚡ Static Electricity</h3>
+                    <p>Touch a grounded metal object before handling components to discharge static electricity</p>
+                </div>
+                <div class="safety-item">
+                    <h3>🔌 Power Off</h3>
+                    <p>Ensure the PSU is completely off and unplugged before starting assembly</p>
+                </div>
+                <div class="safety-item">
+                    <h3>🧹 Clean Workspace</h3>
+                    <p>Work in a clean, well-lit area with enough space to organize components</p>
+                </div>
+                <div class="safety-item">
+                    <h3>📖 Read Manuals</h3>
+                    <p>Always consult component manuals for specific installation instructions</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="roadmap-section">
+        <div class="container">
+            <h2 class="section-title">Step-by-Step Build Guide</h2>
+            <div class="steps-container">
+                
+                <div class="step-item">
+                    <div class="step-number">
+                        <div class="step-circle">1</div>
+                        <!-- <div class="step-line"></div> -->
+                    </div>
+                    <div class="step-content">
+                        <h3 class="step-title">Prepare Your Workspace</h3>
+                        <p class="step-description">Set up a clean, static-free environment for your PC build.</p>
+                        <div class="step-image" style="background-image: url('RoadMap Photo/cleanworkspace.jpg');
+                background-size: cover;    width: 50%;">
+                            <div class="step-image-text">Clean workspace setup</div>
+                        </div>
+                        <div class="step-tips">
+                            <h4>💡 Pro Tips:</h4>
+                            <ul>
+                                <li>Use a large, flat surface like a dining table</li>
+                                <li>Remove carpets or wear anti-static wrist strap</li>
+                                <li>Keep component boxes for organization</li>
+                                <li>Have good lighting or use a desk lamp</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-item">
+                    <div class="step-number">
+                        <div class="step-circle">2</div>
+                        <div class="step-line"></div>
+                    </div>
+                    <div class="step-content">
+                        <h3 class="step-title">Unpack & Inventory Components</h3>
+                        <p class="step-description">Carefully unpack all components and verify you have everything needed.</p>
+                        <div class="step-image" style="background-image: url('RoadMap Photo/pc compontes.jpeg');
+                background-size:cover;    width: 50%; ">
+                            <div class="step-image-text">Components laid out and organized</div>
+                        </div>
+                        <div class="step-tips">
+                            <h4>📋 Checklist:</h4>
+                            <ul>
+                                <li>PC Cabinet with all screws and standoffs</li>
+                                <li>Motherboard with I/O shield</li>
+                                <li>Processor with stock cooler (if included)</li>
+                                <li>Graphics card</li>
+                                <li>RAM modules</li>
+                                <li>SSD with SATA cables</li>
+                                <li>Power supply unit (PSU)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-item">
+                    <div class="step-number">
+                        <div class="step-circle">3</div>
+                        <div class="step-line"></div>
+                    </div>
+                    <div class="step-content">
+                        <h3 class="step-title">Install I/O Shield</h3>
+                        <p class="step-description">Install the motherboard's I/O shield into the rear panel of the case.</p>
+                       <div class="step-image" style="background-image: url('RoadMap Photo/io shield.jpeg');
+                           background-size: cover;   width: 50%;">
+                         
+                            <div class="step-image-text">I/O shield installed in case</div>
+                        </div>
+                        <div class="step-tips">
+                            <h4>⚠️ Important:</h4>
+                            <ul>
+                                <li>Install from inside the case, pressing outward</li>
+                                <li>Ensure all corners are properly seated</li>
+                                <li>Check that metal tabs don't block ports</li>
+                                <li>This is easier to do before motherboard installation</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-item">
+                    <div class="step-number">
+                        <div class="step-circle">4</div>
+                        <div class="step-line"></div>
+                    </div>
+                    <div class="step-content">
+                        <h3 class="step-title">Install Motherboard Standoffs</h3>
+                        <p class="step-description">Install brass standoffs in the case to elevate the motherboard and prevent short circuits.</p>
+                        <div class="step-image"style="background-image: url('RoadMap Photo/Built-in-Motherboard-Standoffs.jpg');
+                           background-size: cover;      width: 50%;">
+                            <div class="step-image-text">Standoffs screwed into case</div>
+                        </div>
+                        <div class="step-tips">
+                            <h4>🔧 Installation Tips:</h4>
+                            <ul>
+                                <li>Only install standoffs where motherboard has mounting holes</li>
+                                <li>Hand-tighten first, then use screwdriver carefully</li>
+                                <li>Check motherboard manual for exact placement</li>
+                                <li>Extra standoffs can cause short circuits</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-item">
+                    <div class="step-number">
+                        <div class="step-circle">5</div>
+                        <div class="step-line"></div>
+                    </div>
+                    <div class="step-content">
+                        <h3 class="step-title">Install Processor (CPU)</h3>
+                        <p class="step-description">Carefully install the processor into the motherboard socket.</p>
+                        <div class="step-image"style="background-image: url('RoadMap Photo/installing pro.jpeg');
+                           background-size: cover;    width: 50%;">
+                            <div class="step-image-text">CPU installed in motherboard socket</div>
+                        </div>
+                        <div class="step-tips">
+                            <h4>🚨 Critical Steps:</h4>
+                            <ul>
+                                <li>Open CPU socket by lifting retention arm</li>
+                                <li>Align CPU with socket (look for alignment markers)</li>
+                                <li>CPU should drop in without force</li>
+                                <li>Lower retention arm to secure CPU</li>
+                                <li>Never force or bend CPU pins</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-item">
+                    <div class="step-number">
+                        <div class="step-circle">6</div>
+                        <div class="step-line"></div>
+                    </div>
+                    <div class="step-content">
+                        <h3 class="step-title">Install RAM Memory</h3>
+                        <p class="step-description">Insert RAM modules into the appropriate slots on the motherboard.</p>
+                        <div class="step-image"style="background-image: url('RoadMap Photo/Ram.jpeg');
+                           background-size: cover;    width: 50%;">
+                            <div class="step-image-text">RAM modules installed in motherboard</div>
+                        </div>
+                        <div class="step-tips">
+                            <h4>📍 Installation Guide:</h4>
+                            <ul>
+                                <li>Open RAM slot clips</li>
+                                <li>Align RAM notch with slot notch</li>
+                                <li>Press down firmly until clips snap into place</li>
+                                <li>For dual-channel, use slots 2 and 4 first</li>
+                                <li>Check motherboard manual for optimal slot configuration</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-item">
+                    <div class="step-number">
+                        <div class="step-circle">7</div>
+                        <div class="step-line"></div>
+                    </div>
+                    <div class="step-content">
+                        <h3 class="step-title">Install M.2 SSD</h3>
+                        <p class="step-description">Install the SSD into the M.2 slot on the motherboard.</p>
+                        <div class="step-image"style="background-image: url('RoadMap Photo/ssd.jpg');
+                           background-size: cover;    width: 50%;">
+                            <div class="step-image-text">M.2 SSD installed on motherboard</div>
+                        </div>
+                        <div class="step-tips">
+                            <h4>💽 SSD Installation:</h4>
+                            <ul>
+                                <li>Locate M.2 slot on motherboard</li>
+                                <li>Insert SSD at 30-degree angle</li>
+                                <li>Press down and secure with provided screw</li>
+                                <li>Remove any heatsink stickers if present</li>
+                                <li>Check motherboard manual for multiple M.2 slots</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-item">
+                    <div class="step-number">
+                        <div class="step-circle">8</div>
+                        <div class="step-line"></div>
+                    </div>
+                    <div class="step-content">
+                        <h3 class="step-title">Install Motherboard in Case</h3>
+                        <p class="step-description">Carefully place the motherboard into the case and secure with screws.</p>
+                        <div class="step-image"style="background-image: url('RoadMap Photo/moth install.jpg');
+                           background-size: cover;    width: 50%;">
+                            <div class="step-image-text">Motherboard mounted in PC case</div>
+                        </div>
+                        <div class="step-tips">
+                            <h4>🔩 Mounting Process:</h4>
+                            <ul>
+                                <li>Align motherboard with I/O shield</li>
+                                <li>Line up mounting holes with standoffs</li>
+                                <li>Start with corners, then center screws</li>
+                                <li>Don't overtighten - snug is enough</li>
+                                <li>Ensure no cables are pinched underneath</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-item">
+                    <div class="step-number">
+                        <div class="step-circle">9</div>
+                        <div class="step-line"></div>
+                    </div>
+                    <div class="step-content">
+                        <h3 class="step-title">Install Power Supply (PSU)</h3>
+                        <p class="step-description">Mount the power supply unit in the designated area of the case.</p>
+                        <div class="step-image"style="background-image: url('RoadMap Photo/pcu.jpeg');
+                           background-size: cover;    width: 50%;">
+                            <div class="step-image-text">PSU installed in case</div>
+                        </div>
+                        <div class="step-tips">
+                            <h4>⚡ PSU Installation:</h4>
+                            <ul>
+                                <li>Fan should face down if case has bottom ventilation</li>
+                                <li>Otherwise, fan faces up into the case</li>
+                                <li>Secure with four screws from outside the case</li>
+                                <li>Ensure PSU switch is in OFF position</li>
+                                <li>Leave power cable disconnected for now</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-item">
+                    <div class="step-number">
+                        <div class="step-circle">10</div>
+                        <div class="step-line"></div>
+                    </div>
+                    <div class="step-content">
+                        <h3 class="step-title">Install Graphics Card</h3>
+                        <p class="step-description">Insert the graphics card into the PCIe x16 slot on the motherboard.</p>
+                        <div class="step-image"style="background-image: url('RoadMap Photo/gpu.jpeg');
+                           background-size: cover;    width: 50%;">
+                            <div class="step-image-text">Graphics card installed in PCIe slot</div>
+                        </div>
+                        <div class="step-tips">
+                            <h4>🎮 GPU Installation:</h4>
+                            <ul>
+                                <li>Remove PCIe slot covers from case</li>
+                                <li>Open PCIe slot clip</li>
+                                <li>Align card with top PCIe x16 slot</li>
+                                <li>Press down firmly until it clicks</li>
+                                <li>Secure with screws to case bracket</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-item">
+                    <div class="step-number">
+                        <div class="step-circle">11</div>
+                        <div class="step-line"></div>
+                    </div>
+                    <div class="step-content">
+                        <h3 class="step-title">Connect Power Cables</h3>
+                        <p class="step-description">Connect all necessary power cables from the PSU to motherboard and components.</p>
+                        <div class="step-image"style="background-image: url('RoadMap Photo/cab.jpg');
+                           background-size: cover;    width: 50%;">
+                            <div class="step-image-text">Power cables connected to motherboard</div>
+                        </div>
+                        <div class="step-tips">
+                            <h4>🔌 Power Connections:</h4>
+                            <ul>
+                                <li>24-pin main power to motherboard</li>
+                                <li>8-pin CPU power (top-left of motherboard)</li>
+                                <li>PCIe power cables to graphics card</li>
+                                <li>SATA power to SSD (if not M.2)</li>
+                                <li>All connectors have unique shapes - don't force</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-item">
+                    <div class="step-number">
+                        <div class="step-circle">12</div>
+                        <div class="step-line"></div>
+                    </div>
+                    <div class="step-content">
+                        <h3 class="step-title">Connect Front Panel Connectors</h3>
+                        <p class="step-description">Connect the case's front panel connectors to the motherboard.</p>
+                        <div class="step-image"style="background-image: url('RoadMap Photo/moth conn.jpg');
+                           background-size: cover;    width: 50%;">
+                            <div class="step-image-text">Front panel connectors attached</div>
+                        </div>
+                        <div class="step-tips">
+                            <h4>🔗 Front Panel Connections:</h4>
+                            <ul>
+                                <li>Power button and reset button</li>
+                                <li>Power LED and HDD LED</li>
+                                <li>USB headers from case</li>
+                                <li>Audio header (HD Audio)</li>
+                                <li>Check motherboard manual for exact pin layout</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-item">
+                    <div class="step-number">
+                        <div class="step-circle">13</div>
+                        <div class="step-line"></div>
+                    </div>
+                    <div class="step-content">
+                        <h3 class="step-title">Install CPU Cooler</h3>
+                        <p class="step-description">Install the CPU cooler to keep your processor at safe temperatures.</p>
+                        <div class="step-image"style="background-image: url('RoadMap Photo/cpu cooler.jpeg');
+                           background-size: cover;    width: 50%;">
+                            <div class="step-image-text">CPU cooler mounted on processor</div>
+                        </div>
+                        <div class="step-tips">
+                            <h4>❄️ Cooling Installation:</h4>
+                            <ul>
+                                <li>Apply thermal paste if not pre-applied</li>
+                                <li>Mount cooler according to manufacturer instructions</li>
+                                <li>Connect cooler power cable to CPU_FAN header</li>
+                                <li>Ensure even pressure across CPU surface</li>
+                                <li>Check clearance with RAM modules</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-item">
+                    <div class="step-number">
+                        <div class="step-circle">14</div>
+                        <div class="step-line"></div>
+                    </div>
+                    <div class="step-content">
+                        <h3 class="step-title">Cable Management</h3>
+                        <p class="step-description">Organize and secure all cables for better airflow and aesthetics.</p>
+                        <div class="step-image"style="background-image: url('RoadMap Photo/ca man.jpg');
+                           background-size: cover;    width: 50%;">
+                            <div class="step-image-text">Clean cable management setup</div>
+                        </div>
+                        <div class="step-tips">
+                            <h4>🗂️ Cable Management:</h4>
+                            <ul>
+                                <li>Route cables behind motherboard tray</li>
+                                <li>Use cable ties or velcro straps</li>
+                                <li>Keep cables away from fans</li>
+                                <li>Group similar cables together</li>
+                                <li>Leave some slack for future upgrades</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-item">
+                    <div class="step-number">
+                        <div class="step-circle">15</div>
+                        <div class="step-line"></div>
+                    </div>
+                    <div class="step-content">
+                        <h3 class="step-title">Final Checks</h3>
+                        <p class="step-description">Perform final inspection before powering on your new PC.</p>
+                        <div class="step-image"style="background-image: url('RoadMap Photo/sl.jpeg');
+                           background-size: cover;    width: 50%;">
+                            <div class="step-image-text">Final PC build inspection</div>
+                        </div>
+                        <div class="step-tips">
+                            <h4>✅ Pre-Power Checklist:</h4>
+                            <ul>
+                                <li>All power connections secure</li>
+                                <li>RAM properly seated and clicked in</li>
+                                <li>Graphics card fully inserted</li>
+                                <li>CPU cooler connected and secured</li>
+                                <li>No loose screws in case</li>
+                                <li>PSU switch still in OFF position</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-item">
+                    <div class="step-number">
+                        <div class="step-circle">16</div>
+                        <div class="step-line"></div>
+                    </div>
+                    <div class="step-content">
+                        <h3 class="step-title">First Boot</h3>
+                        <p class="step-description">Power on your PC for the first time and check for successful boot.</p>
+                        <div class="step-image"style="background-image: url('RoadMap Photo/POST-screen-on-PC.jpg');
+                           background-size: cover;    width: 50%;">
+                            <div class="step-image-text">PC powered on and booting</div>
+                        </div>
+                        <div class="step-tips">
+                            <h4>🚀 First Boot Process:</h4>
+                            <ul>
+                                <li>Connect monitor to graphics card (not motherboard)</li>
+                                <li>Flip PSU switch to ON</li>
+                                <li>Press case power button</li>
+                                <li>Check for fans spinning and lights</li>
+                                <li>Look for BIOS/UEFI screen on monitor</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="troubleshooting-section">
+        <div class="container">
+            <h2 class="section-title">Common Issues & Solutions</h2>
+            <div class="troubleshooting-grid">
+                <div class="troubleshooting-card">
+                    <h3>PC Won't Turn On</h3>
+                    <p>No lights, fans, or activity when pressing power button.</p>
+                    <div class="solution">
+                        <strong>Solution:</strong> Check PSU switch, reseat power cables, verify front panel connectors, and ensure RAM is properly seated.
+                    </div>
+                </div>
+                <div class="troubleshooting-card">
+                    <h3>No Display Output</h3>
+                    <p>PC turns on but monitor shows no signal.</p>
+                    <div class="solution">
+                        <strong>Solution:</strong> Connect monitor to graphics card (not motherboard), reseat GPU and RAM, check all power connections.
+                    </div>
+                </div>
+                <div class="troubleshooting-card">
+                    <h3>Boot Loop</h3>
+                    <p>PC turns on, then off, then on again repeatedly.</p>
+                    <div class="solution">
+                        <strong>Solution:</strong> Clear CMOS, check RAM compatibility, verify CPU installation, ensure adequate power supply.
+                    </div>
+                </div>
+                <div class="troubleshooting-card">
+                    <h3>High Temperatures</h3>
+                    <p>CPU or GPU running too hot during operation.</p>
+                    <div class="solution">
+                        <strong>Solution:</strong> Check thermal paste application, verify cooler mounting, ensure case fans are working, improve airflow.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="success-section">
+        <div class="container">
+            <div class="celebration-icon">🎉</div>
+            <h2>Congratulations!</h2>
+            <p>You've successfully built your custom PC! Your system is now ready for operating system installation and setup.</p>
+            <div style="background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 15px; margin-top: 2rem;">
+                <h3>Next Steps:</h3>
+                <p>Install your operating system, update drivers, and start enjoying your new custom-built PC!</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Scroll progress indicator
+        window.addEventListener('scroll', () => {
+            const scrolled = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+            document.getElementById('scrollProgress').style.width = scrolled + '%';
+        });
+
+        // Intersection Observer for step animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all step items
+        document.querySelectorAll('.step-item').forEach(step => {
+            observer.observe(step);
+        });
+
+        // Smooth scrolling for any anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
